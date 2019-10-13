@@ -7,10 +7,36 @@ for (let i = 1; i <= 10; i++) {
 const cleanPhoneNumber = phone => phone.replace(/-/g, '')
 console.log(cleanPhoneNumber('8-966-544'));
 
-const anythingToLowerCase = anything => {
-	if (!anything) {
-		return ''
-	}
-	return String(anything).toLowerCase()
-}
-console.log(anythingToLowerCase('SLKSLSKL'));
+// const anythingToLowerCase = anything => {
+// 	if (!anything) {
+// 		return ''
+// 	}
+// 	return String(anything).toLowerCase()
+// }
+// console.log(anythingToLowerCase('SLKSLSKL'));
+
+// Task3
+console.log(`Число Pi равно ${Math.PI}`);
+
+// Task4
+// Task4.1
+const sleep = arg => new Promise(function(resolve) {
+	setTimeout(function() {
+		resolve(console.log(arg));
+	}, arg);
+});
+sleep(2000);
+// Task4.2
+const anythingToLowerCase = anything => new Promise(function(resolve, reject) {
+	resolve(anything.toLowerCase());
+	reject('');
+})
+anythingToLowerCase('lKLKHKLkjk')
+	.then(result => {
+		return result;
+	})
+	.then(console.log)
+	.catch(noResult => {
+		return noResult;
+	})
+	.catch(console.log)
