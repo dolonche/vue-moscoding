@@ -30,8 +30,10 @@ const sleep = arg => {
 sleep(2000);
 // Task4.2
 const anythingToLowerCase = anything => new Promise((resolve, reject) => {
+	if (!anything) {
+		reject('');
+	}
 	resolve(anything.toLowerCase());
-	reject('');
 })
 anythingToLowerCase('lKLKHKLkjk')
 	.then(result => {
