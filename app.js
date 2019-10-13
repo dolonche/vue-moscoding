@@ -20,14 +20,16 @@ console.log(`Число Pi равно ${Math.PI}`);
 
 // Task4
 // Task4.1
-const sleep = arg => new Promise(function(resolve) {
-	setTimeout(function() {
-		resolve(console.log(arg));
-	}, arg);
-});
+const sleep = arg => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(console.log(arg));
+		}, arg);
+	});
+}
 sleep(2000);
 // Task4.2
-const anythingToLowerCase = anything => new Promise(function(resolve, reject) {
+const anythingToLowerCase = anything => new Promise((resolve, reject) => {
 	resolve(anything.toLowerCase());
 	reject('');
 })
