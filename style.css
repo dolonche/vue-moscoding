@@ -1,0 +1,36 @@
+#app {
+	font-family: sans-serif;
+	max-width: 1280px;
+	box-sizing: border-box;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.main-nav {
+	width: 100%;
+}
+
+.main-nav__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.main-nav__list-item {
+	text-align: center;
+	background-color: midnightblue;
+	flex-grow: 2;
+	padding-top: 14px;
+	padding-bottom: 16px;
+
+}
+
+.main-nav__list-item-link {
+	text-decoration: none;
+	color: #fff;
+}
+.main-nav__list-item-link:hover{
+	border-bottom: 1px solid #fff;
+}

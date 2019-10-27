@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>vue-prikoli</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+	<div id="app">
+		<div id="text" v-if="showText" v-html="text"></div>
+		<div v-else="">Important message</div>
+		<hr>
+		<button :disabled="hideBtn" id="btn" ref="btn" @click.prevent="showText = !showText">Show me!</button>
+		<nav class="main-nav">
+			<ul class="main-nav__list">
+				<li class="main-nav__list-item" v-for="(item, index) in items" v-bind:key="index"><a href="" class="main-nav__list-item-link">{{item}}</a></li>
+			</ul>
+		</nav>
+		<div class="card">
+			<div class="card-items" v-for="(item, index) in _users" v-bind:key="index">{{item.prefix}}{{item.name}}</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="app.js"></script>
+	<script type="text/javascript">
+	const app = new Vue({
+		el: '#app',
+		data: {
+			text: '<p>Lorem ipsum dolor sit amet.</p>',
+			showText: false,
+			hideBtn: true,
+			items: ['Feedback', 'Contacts', 'Products', 'About us'],
+			users: [{
+				name: 'Ivan',
+				gender: 'male'
+			}, {
+				name: 'Alexey',
+				gender: 'male'
+			}, {
+				name: 'Tatyana',
+				gender: 'female'
+			}]
+		},
+		created() {
+			this.enableBtn()
+		},
+		mounted() {
+		},
+		methods: {
+			enableBtn() {
+				setTimeout(() => {
+					app.hideBtn = false;
+					app.items.sort();
+				}, 2000);
+			}
+		},
+		computed: {
+			_users() {
+				return this.users.map(user => {
+					const gender = user.gender;
+					const prefix = (gender === 'male') ? 'Mr. ' : 'Ms. ';
+					user.prefix = prefix;
+					return user;
+				})
+			}
+		}
+	})
+	</script>
 </body>
+
 </html>
