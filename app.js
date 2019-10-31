@@ -43,4 +43,5 @@ anythingToLowerCase('lKLKHKLkjk')
 	.catch(noResult => {
 		return noResult;
 	})
-	.catch(console.log)
+	.catch(console.log);
+	
